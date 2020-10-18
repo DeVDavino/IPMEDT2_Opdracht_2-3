@@ -1,0 +1,310 @@
+/* Core Styles */
+*,*::before,*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #333;
+    color: #fff;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    text-align: center;
+    scroll-behavior: smooth;
+  }
+  
+  img {
+    display: grid;
+    width: 100%;
+    height: 30rem;
+  }
+  
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    padding: 1rem 0;
+  }
+  
+  p {
+    margin: 0;
+    padding: 1rem 0;
+    font-size: 1.8rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border: 1px solid #666;
+    margin: 0.5em 0;
+  }
+  
+  .btn:hover {
+    background: #eee;
+    color: #333;
+    opacity: .8;
+  }
+
+  .btn::after{
+    opacity: .5;
+  }
+  
+  /* Header Showcase */
+  .grid{  /* Standard layout, when reach 600px turns into grid */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #showcase {
+    min-height: 450px;
+    color: #fff;
+    text-align: center;
+
+  }
+  
+  #showcase .bg-image {
+    background: #333 url("./img/coverImage/640.webp");
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height:450px;
+    z-index: -1;
+    opacity: 0.4;
+  }
+  
+  #showcase h1 {
+    padding-top: 100px;
+    padding-bottom: 0;
+  }
+  
+  #showcase .content-wrap,
+  #section-a .content-wrap {
+    padding: 0 1.5em;
+  }
+  
+  /* Section A */
+  
+  #section-a {
+    background: #eaeaea;
+    color: #333;
+    padding-bottom: 2rem;
+  }
+
+  /* Section B */
+  
+  #section-b {
+    padding: 2rem 2rem 2rem;
+  }
+
+  #section-b ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #section-b li {
+    background: #fff;
+    color: #333;
+  }
+
+  #section-b li:nth-child(1):hover{
+    box-shadow: 5px 5px 2px rgb(253, 0, 253);
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  #section-b li:nth-child(2):hover{
+    box-shadow: 5px 5px 2px rgb(214, 18, 18);
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  #section-b li:nth-child(3):hover{
+    box-shadow: 5px 5px 2px rgb(249, 168, 38);
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  .card-content{
+    padding: 2em;
+    cursor: pointer;
+    margin-bottom: 2rem;
+  }
+
+  /* Section C */
+  
+  #section-c {
+    background: #fff;
+    color: #333;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Section D / Boxes */
+  .section--grid{
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(12,minmax(0,1fr)); /*12 columns with 1fr as width*/
+    grid-template-rows: repeat(6, minmax(0,1fr));
+    /* padding: 2rem 2rem 2rem;
+    margin: 0 auto; */
+  }
+
+  .section--grid > figure{
+    position: relative;
+  }
+
+  .section--grid > figure::after{
+    /* content: ; */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    content: "";
+    background-image: url("./img/img6.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: contain;
+  }
+
+  .section--grid > figure:hover::after{
+    opacity: 1;
+  }
+
+  .section--grid > figure > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .section--grid > figure:nth-of-type(1){
+      grid-column: 1 / span 4;
+      grid-row: 1 /span 3;
+  }
+
+  .section--grid > figure:nth-of-type(2){
+      grid-column: 1 / span 4;
+      grid-row: 4 / span 3;
+  }
+
+  .section--grid > figure:nth-of-type(3){ /* third photo*/
+      grid-column: 5 / span 4;
+      grid-row: 1 / span 4;
+  }
+
+  .section--grid > figure:nth-of-type(4){
+      grid-column: 9 / span 4;
+      grid-row: 1 / span 2;
+  }
+
+  .section--grid > figure:nth-of-type(5){ /* 5th photo*/
+      grid-column: 9 / span 4;
+      grid-row: 3 / span 9;
+  }
+
+  .section--grid > figure:nth-of-type(6){
+    grid-column: 5 / span 4;
+    grid-row: 5 / span 2;
+}
+    
+ @media (min-width: 600px) {
+
+  #section-b.grid{
+    animation-name: appear;
+    animation-duration: .8s;
+    animation-timing-function: linear;
+    transform-origin: center; /*Scales from the left, starts top left*/
+    animation-delay: 0.8s;
+    animation-fill-mode: backwards;
+  }
+
+  #js--picture--grid{
+    animation-name: fromLeft;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+  }
+
+  #section-c{
+    flex-direction: row;
+  }
+
+  @supports(display:grid){
+
+    .grid {
+      background-color: #333 url("./img/coverImage/");
+      display: grid;
+      grid-template-columns: 1fr repeat(2, minmax(auto, 60rem)) 1fr;  
+    }
+  
+    #section-a .content-text {
+      columns: 1;
+      font-size: 2rem;
+    }
+  
+    #section-a .content-text p {
+      padding-top: 0;
+      text-align: center;
+      margin: 1rem;
+    }
+  
+    .content-wrap,
+    #section-b ul {
+      grid-column: 2/4;
+    }
+  
+    .box,
+    #main-footer div {
+      grid-column: span 2;
+    }
+  
+    #section-b ul {
+      display: flex;
+      justify-content: space-around;
+    }
+  
+    #section-b li {
+      width: 31%;
+    }
+  }
+  
+}
+
+@keyframes appear {
+  from{
+      transform: scale(0)
+  }
+  to{
+      transform: scale(1);
+  }
+}
+
+@keyframes fromLeft{
+  from{
+      opacity: 0;
+      transform: translateX(-20rem);
+  }
+  to{
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+    
+  
+  
